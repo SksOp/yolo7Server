@@ -3,9 +3,11 @@ import subprocess
 import os
 import shutil
 
+from flask_cors import CORS,cross_origin
 app = Flask(__name__)
-
+CORS(app, resources={r"/api/*": {"origins": ["http://localhost:3000"]}})
 @app.route('/predictCustom', methods=['POST'])
+@cross_origin()  
 def predictCustom():
     if 'file' not in request.files:
         return 'No file part'
@@ -35,6 +37,7 @@ def predictCustom():
     
     return finalImage
 @app.route('/predictCoco', methods=['POST'])
+@cross_origin()  
 def predictCoco():
     if 'file' not in request.files:
         return 'No file part'

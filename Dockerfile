@@ -9,12 +9,13 @@ COPY . /app
 
 
 # Install any necessary dependencies
-# RUN pip install --no-index --find-links=/app/wheelhouse -r requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install --no-index --find-links=/app/wheelhouse -r requirements.txt
+# RUN pip install -r requirements.txt
 
+ENV FLASK_APP=/app/server.py
 
 # Make port 5000 available to the world outside this container
 EXPOSE 5000
 
 # Run app.py when the container launches
-CMD ["python", "server.py"]
+CMD ["flask", "run"]

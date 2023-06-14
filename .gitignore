@@ -275,3 +275,4 @@ wheelhouse/
 *.log
 train.py
 test.py
+/client/node_modules

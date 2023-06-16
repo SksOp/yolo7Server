@@ -276,3 +276,6 @@ wheelhouse/
 train.py
 test.py
 /client/node_modules
+.dockerignore
+Dockerfile
+render.yaml

@@ -1,0 +1,7 @@
+services:
+  - name: flask-app
+    env:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+    buildCommand: docker build -t $RENDER_SERVICE_NAME -f Dockerfile .
+    startCommand: docker run -p 5000:$RENDER_INTERNAL_PORT $RENDER_SERVICE_NAME
